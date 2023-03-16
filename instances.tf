@@ -4,10 +4,11 @@ resource "aws_key_pair" "foo_key" {
 }
 
 resource "aws_instance" "foo_pub_ec2" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  key_name      = aws_key_pair.foo_key.key_name
-  subnet_id     = aws_subnet.foo_pub_sub.id
+  ami                         = var.ami_id
+  instance_type               = var.instance_type
+  key_name                    = aws_key_pair.foo_key.key_name
+  subnet_id                   = aws_subnet.foo_pub_sub.id
+  associate_public_ip_address = true
 
   root_block_device {
     volume_size = 30
