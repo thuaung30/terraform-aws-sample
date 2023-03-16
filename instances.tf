@@ -17,7 +17,7 @@ resource "aws_instance" "foo_pub_ec2" {
   vpc_security_group_ids = [aws_security_group.foo_pub_sg.id]
 
   depends_on = [
-    aws_key_pair.mykey,
+    aws_key_pair.foo_key,
     aws_subnet.foo_pub_sub,
     aws_security_group.foo_pub_sg
   ]
@@ -37,7 +37,7 @@ resource "aws_instance" "foo_pri_ec2" {
   vpc_security_group_ids = [aws_security_group.foo_pri_sg.id]
 
   depends_on = [
-    aws_key_pair.mykey,
+    aws_key_pair.foo_key,
     aws_subnet.foo_pri_sub,
     aws_security_group.foo_pri_sg
   ]
