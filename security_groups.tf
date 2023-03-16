@@ -35,6 +35,10 @@ resource "aws_security_group" "foo_pub_sg" {
   }
 
   depends_on = [aws_vpc.foo_vpc]
+
+  tags = {
+    Name = "foo_pub_sg"
+  }
 }
 
 resource "aws_security_group" "foo_pri_sg" {
@@ -74,4 +78,8 @@ resource "aws_security_group" "foo_pri_sg" {
   }
 
   depends_on = [aws_vpc.foo_vpc]
+
+  tags = {
+    Name = "foo_pri_sg"
+  }
 }

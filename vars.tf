@@ -1,3 +1,13 @@
+variable "region" {
+  type    = string
+  default = "ap-south-1"
+}
+
+variable "a_zone" {
+  type    = string
+  default = "ap-south-1b"
+}
+
 variable "ami_id" {
   type    = string
   default = "ami-0912cd2fb490de15d"

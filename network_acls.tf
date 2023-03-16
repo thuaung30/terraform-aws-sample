@@ -42,6 +42,10 @@ resource "aws_network_acl" "foo_pub_nacl" {
     aws_vpc.foo_vpc,
     aws_subnet.foo_pub_sub,
   ]
+
+  tags = {
+    Name = "foo_pub_nacl"
+  }
 }
 
 resource "aws_network_acl" "foo_pri_nacl" {
@@ -88,4 +92,8 @@ resource "aws_network_acl" "foo_pri_nacl" {
     aws_vpc.foo_vpc,
     aws_subnet.foo_pub_sub,
   ]
+
+  tags = {
+    Name = "foo_pri_nacl"
+  }
 }

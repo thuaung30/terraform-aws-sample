@@ -7,6 +7,10 @@ resource "aws_route_table" "foo_pub_rt" {
   }
 
   depends_on = [aws_vpc.foo_vpc, aws_internet_gateway.foo_igw]
+
+  tags = {
+    Name = "foo_pub_rt"
+  }
 }
 
 resource "aws_route_table" "foo_pri_rt" {
@@ -18,6 +22,10 @@ resource "aws_route_table" "foo_pri_rt" {
   }
 
   depends_on = [aws_vpc.foo_vpc, aws_nat_gateway.foo_ngw]
+
+  tags = {
+    Name = "foo_pri_rt"
+  }
 }
 
 resource "aws_route_table_association" "pub" {

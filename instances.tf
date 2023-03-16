@@ -22,6 +22,10 @@ resource "aws_instance" "foo_pub_ec2" {
     aws_subnet.foo_pub_sub,
     aws_security_group.foo_pub_sg
   ]
+
+  tags = {
+    Name = "foo_pub_ec2"
+  }
 }
 
 resource "aws_instance" "foo_pri_ec2" {
@@ -42,4 +46,8 @@ resource "aws_instance" "foo_pri_ec2" {
     aws_subnet.foo_pri_sub,
     aws_security_group.foo_pri_sg
   ]
+
+  tags = {
+    Name = "foo_pri_ec2"
+  }
 }
