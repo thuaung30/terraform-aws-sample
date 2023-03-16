@@ -42,6 +42,13 @@ resource "aws_security_group" "foo_pri_sg" {
   description = "allow postgres, redis"
   vpc_id      = aws_vpc.foo_vpc.id
 
+  ingress {
+    description = "allow ssh"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [aws_vpc.foo_vpc.cidr_block]
+  }
 
   ingress {
     description = "allow postgres"
