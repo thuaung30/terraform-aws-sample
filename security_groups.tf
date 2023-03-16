@@ -48,7 +48,7 @@ resource "aws_security_group" "foo_pri_sg" {
     from_port   = 5432
     to_port     = 5432
     protocol    = "tcp"
-    cidr_blocks = [aws.foo_vpc.cidr_block]
+    cidr_blocks = [aws_vpc.foo_vpc.cidr_block]
   }
 
   ingress {
@@ -56,7 +56,7 @@ resource "aws_security_group" "foo_pri_sg" {
     from_port   = 6379
     to_port     = 6379
     protocol    = "tcp"
-    cidr_blocks = [aws.foo_vpc.cidr_block]
+    cidr_blocks = [aws_vpc.foo_vpc.cidr_block]
   }
 
   egress {

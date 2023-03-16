@@ -1,4 +1,4 @@
-resource "aws_keypair" "foo_key" {
+resource "aws_key_pair" "foo_key" {
   key_name   = "foo_key"
   public_key = var.foo_pub_key
 }

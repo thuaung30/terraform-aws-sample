@@ -10,7 +10,6 @@ resource "aws_internet_gateway" "foo_igw" {
 
 resource "aws_nat_gateway" "foo_ngw" {
   allocation_id = aws_eip.foo_ngw_eip.id
-  subnet_id     = aws_subnet.foo_pri_sub.id
 
   depends_on = [
     aws_subnet.foo_pri_sub,
