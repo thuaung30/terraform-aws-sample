@@ -1,21 +1,12 @@
-data "aws_ami" "foo" {
-  ami           = "ami-0912cd2fb490de15d"
-  instance_type = "t2.micro"
-}
-
-data "aws_keypair" "my_key" {
-  pub_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID/Q89jqJkQSLE4C2Fsa663vHvRAWrilDJ6L7eJVPngk thuhtetaung.d2@gmail.com"
-}
-
-resource "aws_keypair" "my_key" {
-  key_name   = "my_key"
-  public_key = data.aws_keypair.my_key
+resource "aws_keypair" "foo_key" {
+  key_name   = "foo_key"
+  public_key = var.foo_pub_key
 }
 
 resource "aws_instance" "foo_pub_ec2" {
-  ami           = data.aws_ami.foo.ami
-  instance_type = data.aws_ami.foo.instance_type
-  key_name      = aws_keypair.my_key.key_name
+  ami           = var.ami_id
+  instance_type = var.instance_type
+  key_name      = aws_keypair.foo_key.key_name
   subnet_id     = aws_subnet.foo_pub_sub.id
 
   root_block_device {
@@ -33,9 +24,9 @@ resource "aws_instance" "foo_pub_ec2" {
 }
 
 resource "aws_instance" "foo_pri_ec2" {
-  ami           = data.aws_ami.foo.ami
-  instance_type = data.aws_ami.foo.instance_type
-  key_name      = aws_keypair.my_key.key_name
+  ami           = var.ami_id
+  instance_type = var.instance_type
+  key_name      = aws_keypair.foo_key.key_name
   subnet_id     = aws_subnet.foo_pri_sub.id
 
   root_block_device {
