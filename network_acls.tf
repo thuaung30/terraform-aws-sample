@@ -88,6 +88,15 @@ resource "aws_network_acl" "foo_pri_nacl" {
     to_port    = 6379
   }
 
+  ingress {
+    protocol   = "icmp"
+    rule_no    = 500
+    action     = "allow"
+    cidr_block = aws_vpc.foo_vpc.cidr_block
+    from_port  = 0
+    to_port    = 0
+  }
+
   egress {
     protocol   = "all"
     rule_no    = 100

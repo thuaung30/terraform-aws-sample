@@ -77,7 +77,7 @@ resource "aws_security_group" "foo_pri_sg" {
     protocol    = "icmp"
     cidr_blocks = [aws_vpc.foo_vpc.cidr_block]
   }
-  
+
   ingress {
     description = "allow redis"
     from_port   = 6379
