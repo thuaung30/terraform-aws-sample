@@ -28,10 +28,11 @@ resource "aws_security_group" "foo_pub_sg" {
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "all"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port        = 0
+    to_port          = 0
+    protocol         = "all"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 
   depends_on = [aws_vpc.foo_vpc]
@@ -88,10 +89,11 @@ resource "aws_security_group" "foo_pri_sg" {
 
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "all"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port        = 0
+    to_port          = 0
+    protocol         = "all"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 
   depends_on = [aws_vpc.foo_vpc]

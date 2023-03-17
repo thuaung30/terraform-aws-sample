@@ -30,12 +30,13 @@ resource "aws_network_acl" "foo_pub_nacl" {
   }
 
   egress {
-    protocol   = "all"
-    rule_no    = 100
-    action     = "allow"
-    cidr_block = "0.0.0.0/0"
-    from_port  = 0
-    to_port    = 0
+    protocol        = "all"
+    rule_no         = 100
+    action          = "allow"
+    cidr_block      = "0.0.0.0/0"
+    ipv6_cidr_block = "::/0"
+    from_port       = 0
+    to_port         = 0
   }
 
   depends_on = [
@@ -98,12 +99,13 @@ resource "aws_network_acl" "foo_pri_nacl" {
   }
 
   egress {
-    protocol   = "all"
-    rule_no    = 100
-    action     = "allow"
-    cidr_block = "0.0.0.0/0"
-    from_port  = 0
-    to_port    = 0
+    protocol        = "all"
+    rule_no         = 100
+    action          = "allow"
+    cidr_block      = "0.0.0.0/0"
+    ipv6_cidr_block = "::/0"
+    from_port       = 0
+    to_port         = 0
   }
 
   depends_on = [
