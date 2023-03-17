@@ -35,7 +35,7 @@ resource "aws_network_acl" "foo_pub_nacl" {
     action     = "allow"
     cidr_block = "0.0.0.0/0"
     from_port  = 0
-    to_port    = 6535
+    to_port    = 0
   }
 
   depends_on = [
@@ -103,7 +103,7 @@ resource "aws_network_acl" "foo_pri_nacl" {
     action     = "allow"
     cidr_block = "0.0.0.0/0"
     from_port  = 0
-    to_port    = 65535
+    to_port    = 0
   }
 
   depends_on = [
