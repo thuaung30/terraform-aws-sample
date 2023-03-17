@@ -48,7 +48,7 @@ resource "aws_security_group" "foo_pri_sg" {
 
   ingress {
     description = "allow ssh"
-    from_port   = 22
+    from_port   = 0
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = [aws_vpc.foo_vpc.cidr_block]
@@ -56,7 +56,7 @@ resource "aws_security_group" "foo_pri_sg" {
 
   ingress {
     description = "allow postgres"
-    from_port   = 5432
+    from_port   = 0
     to_port     = 5432
     protocol    = "tcp"
     cidr_blocks = [aws_vpc.foo_vpc.cidr_block]
@@ -64,7 +64,7 @@ resource "aws_security_group" "foo_pri_sg" {
 
   ingress {
     description = "allow redis"
-    from_port   = 6379
+    from_port   = 0
     to_port     = 6379
     protocol    = "tcp"
     cidr_blocks = [aws_vpc.foo_vpc.cidr_block]

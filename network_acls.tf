@@ -57,7 +57,7 @@ resource "aws_network_acl" "foo_pri_nacl" {
     rule_no    = 100
     action     = "allow"
     cidr_block = aws_vpc.foo_vpc.cidr_block
-    from_port  = 22
+    from_port  = 0
     to_port    = 22
   }
 
@@ -66,7 +66,7 @@ resource "aws_network_acl" "foo_pri_nacl" {
     rule_no    = 200
     action     = "allow"
     cidr_block = aws_vpc.foo_vpc.cidr_block
-    from_port  = 5432
+    from_port  = 0
     to_port    = 5432
   }
 
@@ -75,7 +75,7 @@ resource "aws_network_acl" "foo_pri_nacl" {
     rule_no    = 300
     action     = "allow"
     cidr_block = aws_vpc.foo_vpc.cidr_block
-    from_port  = 6379
+    from_port  = 0
     to_port    = 6379
   }
 
