@@ -44,6 +44,8 @@ resource "aws_network_acl" "foo_pub_nacl" {
     rule_no    = 500
     action     = "allow"
     cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 40
     icmp_type  = -1
     icmp_code  = -1
   }
@@ -121,6 +123,8 @@ resource "aws_network_acl" "foo_pri_nacl" {
     rule_no    = 500
     action     = "allow"
     cidr_block = aws_vpc.foo_vpc.cidr_block
+    from_port  = 0
+    to_port    = 40
     icmp_type  = -1
     icmp_code  = -1
   }
