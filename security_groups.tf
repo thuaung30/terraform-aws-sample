@@ -87,7 +87,6 @@ resource "aws_security_group" "foo_pri_sg" {
     cidr_blocks = [aws_vpc.foo_vpc.cidr_block]
   }
 
-
   egress {
     from_port        = 0
     to_port          = 0
