@@ -72,14 +72,6 @@ resource "aws_security_group" "foo_pri_sg" {
   }
 
   ingress {
-    description = "allow telnet"
-    from_port   = 23
-    to_port     = 23
-    protocol    = "tcp"
-    cidr_blocks = [aws_vpc.foo_vpc.cidr_block]
-  }
-
-  ingress {
     description = "allow icmp"
     from_port   = -1
     to_port     = -1
